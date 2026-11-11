@@ -13,7 +13,7 @@
 
 ## 2. The idea
 
-Shalehna is a web app for Egyptian families and friends who share one chalet in Sahel or Sokhna. Today they run the summer from a WhatsApp group and a notebook: who takes which week, who paid the maintenance fee, and what happens to the weeks nobody uses. In Shalehna, the owners book weeks for their own families, rent the free weeks to guests and log the shared expenses. Their dashboard shows what the chalet earns, what it costs, and what each family owes for the weeks it used.
+Shalehna is a web app for Egyptian families and friends who share one chalet in Sahel or Sokhna. Today they run the summer from a WhatsApp group and a notebook: who takes which week, who paid the maintenance fee, and what happens to the weeks nobody uses. In Shalehna, the owners book weeks for their own families, rent the free weeks to guests and log the shared expenses. Their dashboard shows what the chalet earns and what it costs.
 
 ## 3. Features
 
@@ -21,36 +21,21 @@ Shalehna is a web app for Egyptian families and friends who share one chalet in 
 
 - Register and log in as a chalet owner or a guest
 - Create a chalet with its location, price per week and number of summer weeks
-- Add co-owners to a chalet
 - Book a summer week for your own family
 - Guests request free weeks, and owners accept or reject them
 - Log shared expenses such as maintenance, electricity and cleaning
 - A dashboard with rental income, expenses, net profit and how the weeks are used
-- A fair split of the expenses by the number of weeks each family used
-- Report a problem in the chalet and mark it fixed
-- Share the free weeks on WhatsApp
-- Print a receipt for an accepted rental
-- Guests review the chalet after their stay
-- Online payment for rentals
-- An Arabic version of the site
 
 ### 3.2 The use cases we will build
 
 | # | Use case | What the user does | What they see | What is stored |
 |---|---|---|---|---|
 | 1 | Registration and login | Registers with name, email, password and role (owner or guest); logs in with email and password | Their home page, with their name in the header | A User, with the password hashed |
-| 2 | Manage a chalet | An owner creates a chalet with its name, location, price per week and number of summer weeks, edits it, adds a co-owner by email, or deletes it | The list of their chalets with each chalet's details | A Chalet, with the list of its owners |
+| 2 | Manage a chalet | An owner creates a chalet with its name, location, price per week and number of summer weeks, edits it, or deletes it | The list of their chalets with each chalet's details | A Chalet, linked to its owner |
 | 3 | Book a week | An owner books a free week for their family; a guest requests a free week; an owner accepts or rejects a guest's request; either one cancels a booking | The chalet's summer weeks, each one marked free, family, requested or rented | A Booking, with its chalet, user, week number, type and status |
-| 4 | Expenses and dashboard | An owner logs a shared expense with its title, type and amount, or deletes a wrong one | The list of expenses and a dashboard: rental income, total expenses, net profit, weeks by status, and what each family owes for the weeks it used | An Expense, linked to its chalet |
+| 4 | Expenses and dashboard | An owner logs a shared expense with its title, type and amount, or deletes a wrong one | The list of expenses and a dashboard: rental income, total expenses, net profit, and weeks by status | An Expense, linked to its chalet |
 
 ## 4. Who owns what
-
-| Member | Use case |
-|---|---|
-| Karim Tamer Anan | 1. Registration and login |
-| Youssef Rawy | 2. Manage a chalet |
-| Youssef Rawy | 3. Book a week |
-| Karim Tamer Anan | 4. Expenses and dashboard |
 
 ## 5. Data model
 
@@ -73,7 +58,7 @@ const chaletSchema = new mongoose.Schema({
   location: { type: String, required: true },
   pricePerWeek: { type: Number, required: true },
   weeks: { type: Number, required: true },
-  owners: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+  owner: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
 });
 ```
 
