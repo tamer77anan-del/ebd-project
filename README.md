@@ -43,6 +43,14 @@ Shalehna is a web app for Egyptian families and friends who share one chalet in 
 
 ## 4. Who owns what
 
+| Member | Use case |
+|---|---|
+| Karim Tamer Anan | 1. Registration and login |
+| Youssef Rawy | 2. Manage a chalet |
+| Karim Tamer Anan | 3. Family week booking |
+| Youssef Rawy | 4. Guest rental |
+| Karim Tamer Anan | 5. Expenses and dashboard |
+
 ## 5. Data model
 
 ### User
