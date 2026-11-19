@@ -9,7 +9,7 @@
 | Name | Student ID | Tutorial group | GitHub username |
 |---|---|---|---|
 | Karim Tamer Anan | 14003334 | T6 | tamer77anan-del |
-| Youssef Rawy | 13006981 | T6 | yousseffrrawyy |
+| Youssef Rawyy | 13006981 | T6 | yousseffrrawyy |
 
 ## 2. The idea
 
